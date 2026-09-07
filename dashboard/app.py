@@ -5,16 +5,15 @@ import sqlite3
 import traceback
 import re
 from pathlib import Path
+from dotenv import load_dotenv
 
 from flask import Flask, jsonify, request, send_from_directory, render_template
 from google import genai
 from google.genai import types
 
+load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = os.environ.get(
-    "CRICKET_DB_PATH",
-    str(BASE_DIR.parent / "database" / "ipl.db"),
-)
+DB_PATH = os.environ.get("CRICKET_DB_PATH")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 
@@ -871,11 +870,7 @@ def handle_any_error(e):
 
 
 # IPL RAG chatbot (uses the existing Gemini File Search store created by the RAG indexer).
-RAG_STORE_NAME = os.environ.get("RAG_STORE_NAME", "").strip()
-if not RAG_STORE_NAME:
-    _rag_store_file = BASE_DIR / "rag_data" / "store_name.txt"
-    if _rag_store_file.exists():
-        RAG_STORE_NAME = _rag_store_file.read_text(encoding="utf-8").strip()
+RAG_STORE_NAME = os.environ.get("RAG_STORE_NAME").strip()
 
 def query_rag_chat(question, player_name=""):
     if not gemini_client:
@@ -1877,4 +1872,4 @@ def rankings_api():
     finally: c.close()
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=int(os.environ.get("PORT", "5000")), debug=False)
+    app.run(host="127.0.0.1", port=int(os.environ.get("PORT")), debug=False)

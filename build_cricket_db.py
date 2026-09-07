@@ -1,15 +1,21 @@
 import json
+import os
 import shutil
 import sqlite3
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
 
-JSON_FOLDER = r"C:\Users\rsrik\Desktop\My Programs\IPL\IPL\ipl_json"
-DB_FOLDER = r"C:\Users\rsrik\Desktop\My Programs\IPL\IPL\database"
-DB_NAME = "ipl.db"
-BACKUP_BEFORE_UPDATE = True
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
+
+JSON_FOLDER = os.environ.get("JSON_FOLDER")
+DB_FOLDER = os.environ.get("DB_FOLDER")
+DB_NAME = os.environ.get("DB_NAME")
+BACKUP_BEFORE_UPDATE = os.environ.get("BACKUP_BEFORE_UPDATE")
+
 DB_PATH = Path(DB_FOLDER) / DB_NAME
 JSON_PATH = Path(JSON_FOLDER)
+
 BOWLER_WICKET_KINDS = {"bowled", "caught", "caught and bowled", "lbw", "stumped", "hit wicket"}
 CATCH_KINDS = {"caught", "caught and bowled"}
 STUMPING_KINDS = {"stumped"}
