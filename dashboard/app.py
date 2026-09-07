@@ -15,7 +15,7 @@ DB_PATH = os.environ.get(
     "CRICKET_DB_PATH",
     str(BASE_DIR.parent / "database" / "ipl.db"),
 )
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "AQ.Ab8RN6Lo28KmP59Q1TpK5xq6qheJx5jB3N5qUjAYH4GHsycofA")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
