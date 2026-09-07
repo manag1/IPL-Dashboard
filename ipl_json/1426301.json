@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2024-05-13",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Ahmedabad",
+    "dates": [
+      "2024-05-13"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 63
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2024",
+    "teams": [
+      "Gujarat Titans",
+      "Kolkata Knight Riders"
+    ],
+    "venue": "Narendra Modi Stadium, Ahmedabad",
+    "toss": {}
+  },
+  "innings": []
+}

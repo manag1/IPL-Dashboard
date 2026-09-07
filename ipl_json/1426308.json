@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2024-05-19",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Guwahati",
+    "dates": [
+      "2024-05-19"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 70
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2024",
+    "teams": [
+      "Rajasthan Royals",
+      "Kolkata Knight Riders"
+    ],
+    "venue": "Barsapara Cricket Stadium, Guwahati",
+    "toss": {}
+  },
+  "innings": []
+}

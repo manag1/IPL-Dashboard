@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2025-05-17",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Bengaluru",
+    "dates": [
+      "2025-05-17"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 58
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2025",
+    "teams": [
+      "Royal Challengers Bengaluru",
+      "Kolkata Knight Riders"
+    ],
+    "venue": "M Chinnaswamy Stadium, Bengaluru",
+    "toss": {}
+  },
+  "innings": []
+}

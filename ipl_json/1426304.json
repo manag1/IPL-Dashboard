@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2024-05-16",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Hyderabad",
+    "dates": [
+      "2024-05-16"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 66
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2024",
+    "teams": [
+      "Sunrisers Hyderabad",
+      "Gujarat Titans"
+    ],
+    "venue": "Rajiv Gandhi International Stadium, Hyderabad",
+    "toss": {}
+  },
+  "innings": []
+}
