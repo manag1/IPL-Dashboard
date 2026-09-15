@@ -1066,12 +1066,12 @@ def scorecard_seasons():
 
 
 def _scorecard_season_where(season):
-    return "(CAST(substr(m.season,1,4) AS INTEGER)=? OR CAST(m.year AS INTEGER)=?)", [int(season), int(season)]
+    return "((m.year IS NOT NULL AND CAST(m.year AS INTEGER)=?) OR (m.year IS NULL AND CAST(substr(m.season,1,4) AS INTEGER)=?))", [int(season), int(season)]
 
 
 def _knockout_count_for_season(season):
     try:
-        return 3 if int(season) <= 2010 else 4
+        return 3 if int(season) <= 2009 else 4
     except Exception:
         return 4
 
@@ -1096,8 +1096,10 @@ def _scorecard_match_label(season, index, total):
     knockout_count = _knockout_count_for_season(season)
     knockout_start = total - knockout_count
     if index >= knockout_start:
-        if int(season) <= 2010:
+        if int(season) <= 2009:
             names = ["Semi Final 1", "Semi Final 2", "Final"]
+        elif int(season) == 2010:
+            names = ["Semi Final 1", "Semi Final 2", "3rd Place Play-off", "Final"]
         else:
             names = ["Qualifier 1", "Eliminator", "Qualifier 2", "Final"]
         return names[index - knockout_start]

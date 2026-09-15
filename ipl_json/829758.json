@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2015-04-26",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Kolkata",
+    "dates": [
+      "2015-04-26"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 25
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2015",
+    "teams": [
+      "Kolkata Knight Riders",
+      "Rajasthan Royals"
+    ],
+    "venue": "Eden Gardens, Kolkata",
+    "toss": {}
+  },
+  "innings": []
+}

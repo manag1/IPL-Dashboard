@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2012-04-24",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Kolkata",
+    "dates": [
+      "2012-04-24"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 32
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2012",
+    "teams": [
+      "Kolkata Knight Riders",
+      "Deccan Chargers"
+    ],
+    "venue": "Eden Gardens, Kolkata",
+    "toss": {}
+  },
+  "innings": []
+}
