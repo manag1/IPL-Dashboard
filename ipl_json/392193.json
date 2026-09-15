@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2009-04-25",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Cape Town",
+    "dates": [
+      "2009-04-25"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 13
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2009",
+    "teams": [
+      "Chennai Super Kings",
+      "Kolkata Knight Riders"
+    ],
+    "venue": "Cape Town",
+    "toss": {}
+  },
+  "innings": []
+}

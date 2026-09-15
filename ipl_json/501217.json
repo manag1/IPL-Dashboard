@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2011-04-19",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Bengaluru",
+    "dates": [
+      "2011-04-19"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 20
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2011",
+    "teams": [
+      "Royal Challengers Bangalore",
+      "Rajasthan Royals"
+    ],
+    "venue": "M Chinnaswamy Stadium, Bengaluru",
+    "toss": {}
+  },
+  "innings": []
+}

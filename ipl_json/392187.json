@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2009-04-21",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Durban",
+    "dates": [
+      "2009-04-21"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 7
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2009",
+    "teams": [
+      "Mumbai Indians",
+      "Rajasthan Royals"
+    ],
+    "venue": "Durban",
+    "toss": {}
+  },
+  "innings": []
+}

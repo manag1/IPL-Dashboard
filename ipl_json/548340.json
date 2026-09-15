@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "data_version": "1.0.0",
+    "created": "2012-04-25",
+    "revision": 1
+  },
+  "info": {
+    "balls_per_over": 6,
+    "city": "Bengaluru",
+    "dates": [
+      "2012-04-25"
+    ],
+    "event": {
+      "name": "Indian Premier League",
+      "match_number": 34
+    },
+    "gender": "male",
+    "match_type": "T20",
+    "outcome": {
+      "result": "no result"
+    },
+    "overs": 20,
+    "season": "2012",
+    "teams": [
+      "Royal Challengers Bangalore",
+      "Chennai Super Kings"
+    ],
+    "venue": "M Chinnaswamy Stadium, Bengaluru",
+    "toss": {}
+  },
+  "innings": []
+}
