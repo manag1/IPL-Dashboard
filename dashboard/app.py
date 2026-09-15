@@ -1339,6 +1339,54 @@ def scorecard_points_table():
         c.close()
 
 
+@app.get("/api/scorecards/stats")
+def scorecard_stats():
+    season = request.args.get("season", "").strip()
+    if not re.fullmatch(r"20\d{2}", season):
+        return jsonify({})
+    c = db()
+    try:
+        where, params = _scorecard_season_where(season)
+        # All stats are restricted to the selected season. Knockout matches are
+        # included here because this tab is intended to describe the whole season.
+        def q(sql, extra=()):
+            return [dict(r) for r in c.execute(sql, [*params, *extra]).fetchall()]
+        top_runs = q(f"""SELECT p.player_name player, SUM(d.batter_runs) runs,
+            COUNT(DISTINCT i.match_id) matches, SUM(d.counts_as_faced) balls,
+            ROUND(100.0*SUM(d.batter_runs)/NULLIF(SUM(d.counts_as_faced),0),2) sr
+            FROM deliveries d JOIN innings i ON i.innings_id=d.innings_id
+            JOIN matches m ON m.match_id=i.match_id JOIN players p ON p.player_id=d.batter_id
+            WHERE {where} AND i.is_super_over=0 GROUP BY d.batter_id,p.player_name
+            ORDER BY runs DESC, sr DESC LIMIT 10""")
+        top_wickets = q(f"""SELECT p.player_name player, SUM(d.bowler_wickets) wickets,
+            SUM(d.bowler_runs_conceded) runs, SUM(d.is_legal_delivery) balls,
+            ROUND(6.0*SUM(d.bowler_runs_conceded)/NULLIF(SUM(d.is_legal_delivery),0),2) economy
+            FROM deliveries d JOIN innings i ON i.innings_id=d.innings_id
+            JOIN matches m ON m.match_id=i.match_id JOIN players p ON p.player_id=d.bowler_id
+            WHERE {where} AND i.is_super_over=0 GROUP BY d.bowler_id,p.player_name
+            ORDER BY wickets DESC, economy ASC LIMIT 10""")
+        high_scores = q(f"""SELECT p.player_name player, MAX(x.runs) score, COUNT(*) innings
+            FROM (SELECT d.batter_id,i.match_id,SUM(d.batter_runs) runs
+                  FROM deliveries d JOIN innings i ON i.innings_id=d.innings_id
+                  JOIN matches m ON m.match_id=i.match_id
+                  WHERE {where} AND i.is_super_over=0 GROUP BY d.batter_id,i.match_id) x
+            JOIN players p ON p.player_id=x.batter_id GROUP BY p.player_id,p.player_name
+            ORDER BY score DESC LIMIT 10""")
+        fours = q(f"""SELECT p.player_name player, SUM(d.is_four) fours, SUM(d.is_six) sixes
+            FROM deliveries d JOIN innings i ON i.innings_id=d.innings_id
+            JOIN matches m ON m.match_id=i.match_id JOIN players p ON p.player_id=d.batter_id
+            WHERE {where} AND i.is_super_over=0 GROUP BY d.batter_id,p.player_name
+            ORDER BY fours DESC, sixes DESC LIMIT 10""")
+        sixes = sorted(fours, key=lambda x:(x.get('sixes') or 0, x.get('fours') or 0), reverse=True)[:10]
+        match_count = c.execute(f"SELECT COUNT(*) FROM matches m WHERE {where}", params).fetchone()[0]
+        teams = c.execute(f"SELECT COUNT(DISTINCT m.team1_id) FROM matches m WHERE {where}", params).fetchone()[0]
+        return jsonify({"season":season,"summary":{"matches":match_count or 0,"teams":teams or 0},
+                        "top_runs":top_runs,"top_wickets":top_wickets,"high_scores":high_scores,
+                        "fours":fours,"sixes":sixes})
+    finally:
+        c.close()
+
+
 @app.get("/rankings")
 def rankings_page():
     return render_template("rankings.html")
